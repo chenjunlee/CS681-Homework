@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Observer" default="run" basedir=".">
+	<property name="src" location="src/edu/umb/cs681/hw15"/>
+	<property name="testsrc" location="test/src/edu/umb/cs681/hw15"/>
+	<property name="test.bin" location="test/bin"/>
+	<property name="bin" location="bin"/>
+	<property environment="env"/> 
+	
+	<target name="init">
+		<mkdir dir="bin"/>
+	</target>
+	
+	<path id="classpath">
+		<pathelement location="${bin}"/>
+	</path>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="bin" includeantruntime="false"/>
+	</target>
+	
+	<target name="run" depends="compile">
+		<java classname="edu.umb.cs681.hw15.StockMain"
+				classpath="${bin}"
+				fork="true"/>
+	</target>
+	
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+
+</project>
